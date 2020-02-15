@@ -1,4 +1,5 @@
 import random
+from domain.card import Card
 
 class Deck:
     def __init__(self):
@@ -29,20 +30,28 @@ class Deck:
         if any([card.suit != self.cards[0].suit for card in self.cards]):
             return False
 
-        sorted_cards = sorted(self.cards, key = lambda c: c.rank)
+        return self.is_sequential(ace_high = False) or self.is_sequential(ace_high = True)
+           
+    def is_sequential(self, ace_high = False):
+        cards = []
 
-        for card in sorted_cards:
-            print(card.display_name())
+        if ace_high:
+            for card in self.cards:
+                if card.rank == 1:
+                    cards.append(Card(14, card.suit))
+                else:
+                    cards.append(card)
+        else:
+            cards = self.cards[:]
+
+        sorted_cards = sorted(cards, key = lambda c: c.rank)
 
         rank = sorted_cards.pop(0).rank
         
         for card in sorted_cards:
             rank += 1
 
-            print(rank)
-
             if card.rank != rank:
-                return False
+               return False
         
         return True
-        
