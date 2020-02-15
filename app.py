@@ -2,23 +2,17 @@ import collections
 
 from domain.card import Card
 from domain.deck import Deck
+from domain.draw_pile import DrawPile
+from domain.discard_pile import DiscardPile
+from domain.game import Game
+from domain.player import Player
+from domain.board import Board
 
-deck1 = Deck()
+players = [
+    Player("Fred"),
+    Player("Bob"),
+    Player("Jim")
+]
 
-deck1.add_card(Card(1, "Clubs"))
-deck1.add_card(Card(4, "Clubs"))
-deck1.add_card(Card(2, "Clubs"))
-deck1.add_card(Card(3, "Clubs"))
-
-print(deck1.is_run())
-
-deck2 = Deck()
-
-deck2.add_card(Card(1, "Clubs"))
-deck2.add_card(Card(13, "Clubs"))
-deck2.add_card(Card(12, "Clubs"))
-
-print(deck2.is_run())
-
-
+game = Game(board=Board(), draw_pile=DrawPile(), discard_pile=DiscardPile(), players=players)
 
