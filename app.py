@@ -1,18 +1,12 @@
 import collections
-
-from domain.card import Card
-from domain.deck import Deck
-from domain.draw_pile import DrawPile
-from domain.discard_pile import DiscardPile
-from domain.game import Game
-from domain.player import Player
-from domain.board import Board
+import domain
 
 players = [
-    Player("Fred"),
-    Player("Bob"),
-    Player("Jim")
+    domain.Player("Fred"),
+    domain.Player("Bob"),
+    domain.Player("Jim")
 ]
 
-game = Game(board=Board(), draw_pile=DrawPile(), discard_pile=DiscardPile(), players=players)
+game = domain.Game(board=domain.Board(), draw_pile=domain.DrawPile(), discard_pile=domain.DiscardPile(), players=players)
 
+print(game)

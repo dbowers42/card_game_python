@@ -122,7 +122,7 @@ class TestCard(unittest.TestCase):
     ])
     def test_points(self, rank, points):
         """test cards ranked 1-14"""
-        self.assertEqual(Card(rank, "Clubs").points(), points)
+        self.assertEqual(Card(rank, "Clubs").points(), points, f"it returns {points}")
 
 
 if __name__ == '__main__':

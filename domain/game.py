@@ -1,7 +1,5 @@
-from domain.board import Board
-from domain.draw_pile import DrawPile
-from domain.discard_pile import DiscardPile
 from domain.hand import Hand
+
 
 class Game:
     def __init__(self, board, draw_pile, discard_pile, players):
