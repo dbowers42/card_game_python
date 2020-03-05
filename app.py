@@ -9,4 +9,9 @@ players = [
 
 game = domain.Game(board=domain.Board(), draw_pile=domain.DrawPile(), discard_pile=domain.DiscardPile(), players=players)
 
-print(game)
+game.deal()
+
+for player in game.players:
+    print(f"== {player.screen_name} ==")
+    for card in player.hand.cards:
+       print(card.display_name())

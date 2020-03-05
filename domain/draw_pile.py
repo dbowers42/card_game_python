@@ -14,5 +14,10 @@ class DrawPile:
         random.shuffle(self.cards)
 
     def draw_cards(self, how_many = 1):
-        return self.cards.pop()       
+        drawn_cards = [] 
+        
+        for _ in range(0, how_many):
+            drawn_cards.append(self.cards.pop())
+        
+        return drawn_cards      
     
