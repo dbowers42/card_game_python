@@ -3,8 +3,8 @@ from domain.card import Card
 
 
 class Deck:
-    def __init__(self):
-        self.cards = []
+    def __init__(self, cards = []):
+        self.cards = cards
 
     def add_card(self, card: Card):
         self.cards.append(card)
@@ -17,6 +17,8 @@ class Deck:
 
         for card in self.cards:
             total += card.points()
+
+        return total
 
     def is_book(self) -> bool:
         if len(self.cards) < 3:
