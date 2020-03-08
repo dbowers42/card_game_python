@@ -11,3 +11,6 @@ class Game:
     def deal(self):
         for player in self.players:
             player.hand = Hand(self.draw_pile.draw_cards(7))
+
+    def play(self):
+        pass

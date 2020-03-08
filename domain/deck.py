@@ -6,25 +6,25 @@ class Deck:
     def __init__(self):
         self.cards = []
 
-    def add_card(self, card):
+    def add_card(self, card: Card):
         self.cards.append(card)
 
     def shuffle(self):
         random.shuffle(self.cards)
 
-    def points(self):
+    def points(self) -> int:
         total = 0
 
         for card in self.cards:
             total += card.points()
 
-    def is_book(self):
+    def is_book(self) -> bool:
         if len(self.cards) < 3:
             return False
 
         return all([card.rank == self.cards[0].rank for card in self.cards])
 
-    def is_run(self):
+    def is_run(self) -> bool:
         if len(self.cards) < 3:
             return False
 
@@ -33,7 +33,7 @@ class Deck:
 
         return self.is_sequential(ace_high=False) or self.is_sequential(ace_high=True)
 
-    def is_sequential(self, ace_high=False):
+    def is_sequential(self, ace_high=False) -> bool:
         cards = []
 
         if ace_high:

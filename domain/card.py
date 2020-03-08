@@ -1,17 +1,16 @@
+from .suit import Suit
+
 class Card:
     RANK_MAP = {1: "Ace", 14: "Ace", 11: "Jack", 12: "Queen", 13: "King"}
 
-    def __init__(self, rank, suit):
+    def __init__(self, rank: int, suit: Suit):
         self.rank = rank
         self.suit = suit
 
-    def rank_name(self):
-        return Card.RANK_MAP.get(self.rank, str(self.rank))
+    def display_name(self) -> str:
+        return f"{self.__rank_name()} of {self.suit.name}"
 
-    def display_name(self):
-        return f"{self.rank_name()} of {self.suit}"
-
-    def points(self):
+    def points(self) -> int:
         if self.rank == 1 or self.rank == 14:
             return 15
 
@@ -19,3 +18,6 @@ class Card:
             return 10
 
         return 5
+
+    def __rank_name(self) -> str:
+        return Card.RANK_MAP.get(self.rank, str(self.rank))

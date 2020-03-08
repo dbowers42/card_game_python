@@ -1,3 +1,4 @@
+from .suit import Suit
 from .card import Card
 from .board import Board
 from .deck import Deck

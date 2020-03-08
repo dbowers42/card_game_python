@@ -1,29 +1,10 @@
 import unittest
 from parameterized import parameterized
 from domain.card import Card
+from domain.suit import Suit
 
 
 class TestCard(unittest.TestCase):
-    @parameterized.expand([
-        [1, "Ace"],
-        [2, "2"],
-        [3, "3"],
-        [4, "4"],
-        [5, "5"],
-        [6, "6"],
-        [7, "7"],
-        [8, "8"],
-        [9, "9"],
-        [10, "10"],
-        [11, "Jack"],
-        [12, "Queen"],
-        [13, "King"],
-        [14, "Ace"]
-    ])
-    def test_rank_name(self, rank, name):
-        """test cards ranked 1-14"""
-        self.assertEqual(Card(rank, "Clubs").rank_name(), name)
-
     @parameterized.expand([
         [1, "Ace of Clubs"],
         [2, "2 of Clubs"],
@@ -42,7 +23,7 @@ class TestCard(unittest.TestCase):
     ])
     def test_display_name_with_clubs(self, rank, name):
         """test cards ranked 1-14 with a suit of clubs"""
-        self.assertEqual(Card(rank, "Clubs").display_name(), name)
+        self.assertEqual(Card(rank, Suit.Clubs).display_name(), name)
 
     @parameterized.expand([
         [1, "Ace of Spades"],
@@ -62,7 +43,7 @@ class TestCard(unittest.TestCase):
     ])
     def test_display_name_with_spades(self, rank, name):
         """test cards ranked 1-14 with a suit of spades"""
-        self.assertEqual(Card(rank, "Spades").display_name(), name)
+        self.assertEqual(Card(rank, Suit.Spades).display_name(), name)
 
     @parameterized.expand([
         [1, "Ace of Hearts"],
@@ -82,7 +63,7 @@ class TestCard(unittest.TestCase):
     ])
     def test_display_name_with_hearts(self, rank, name):
         """test cards ranked 1-14 with a suit of hearts"""
-        self.assertEqual(Card(rank, "Hearts").display_name(), name)
+        self.assertEqual(Card(rank, Suit.Hearts).display_name(), name)
 
     @parameterized.expand([
         [1, "Ace of Diamonds"],
@@ -102,7 +83,7 @@ class TestCard(unittest.TestCase):
     ])
     def test_display_name_with_diamonds(self, rank, name):
         """test cards ranked 1-14 with a suit of diamonds"""
-        self.assertEqual(Card(rank, "Diamonds").display_name(), name)
+        self.assertEqual(Card(rank, Suit.Diamonds).display_name(), name)
 
     @parameterized.expand([
         [1, 15],
@@ -122,7 +103,7 @@ class TestCard(unittest.TestCase):
     ])
     def test_points(self, rank, points):
         """test cards ranked 1-14"""
-        self.assertEqual(Card(rank, "Clubs").points(), points, f"it returns {points}")
+        self.assertEqual(Card(rank, Suit.Clubs).points(), points, f"it returns {points}")
 
 
 if __name__ == '__main__':

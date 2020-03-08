@@ -7,7 +7,11 @@ players = [
     domain.Player("Jim")
 ]
 
-game = domain.Game(board=domain.Board(), draw_pile=domain.DrawPile(), discard_pile=domain.DiscardPile(), players=players)
+game = domain.Game(
+    board=domain.Board(), 
+    draw_pile=domain.DrawPile(), 
+    discard_pile=domain.DiscardPile(), 
+    players=players)
 
 game.deal()
 
